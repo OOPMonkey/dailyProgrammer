@@ -4,6 +4,8 @@
 
 using namespace std;
 
+bool isAnagram(QString, QString );
+
 int main(int argc, char *argv[])
 {
     QTextStream qin(stdin);
@@ -20,6 +22,7 @@ int main(int argc, char *argv[])
     }
 
     // Create a program that verifies if a word is an anagram of another word.
+    isAnagram("test", "test");
 
     // Create a program that removes a specificed letter from a word.
     qout << "Please input a word:" << endl;
@@ -47,7 +50,22 @@ int main(int argc, char *argv[])
 }
 
 bool isAnagram(QString word1, QString word2) {
+    QTextStream qout(stdout);
+
     if(word1.size() != word2.size())
         return false;
 
+    map<QChar, int> characters;
+    for(QChar c : word1)
+        ++characters[c];
+
+    for(QChar c : word2)
+        --characters[c];
+
+    map<QChar, int>::iterator p;
+    for(p = characters.cbegin(); p != characters.end(); ++p) {
+        p->first;
+    }
+
+    return true;
 }
